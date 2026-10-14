@@ -41,7 +41,6 @@
                     android:layout_width="@dimen/vs_50"
                     android:layout_height="@dimen/vs_50"
                     android:layout_gravity="center"
-                    android:alpha="0.75"
                     android:src="@drawable/icon_history" />
 
                 <TextView
@@ -54,7 +53,9 @@
                     android:gravity="center"
                     android:text="历史"
                     android:textAlignment="gravity"
-                    android:textColor="@color/color_CCFFFFFF"
+                    android:textColor="#99FFFFFF"
+                    android:fontFamily="@font/misans_medium"
+                    android:letterSpacing="0.03"
                     android:textSize="@dimen/ts_40" />
 
             </LinearLayout>
@@ -80,7 +81,6 @@
                     android:layout_width="@dimen/vs_50"
                     android:layout_height="@dimen/vs_50"
                     android:layout_gravity="center"
-                    android:alpha="0.75"
                     android:src="@drawable/icon_live" />
 
                 <TextView
@@ -93,7 +93,9 @@
                     android:gravity="center"
                     android:text="直播"
                     android:textAlignment="gravity"
-                    android:textColor="@color/color_CCFFFFFF"
+                    android:textColor="#99FFFFFF"
+                    android:fontFamily="@font/misans_medium"
+                    android:letterSpacing="0.03"
                     android:textSize="@dimen/ts_40" />
 
             </LinearLayout>
@@ -119,7 +121,6 @@
                     android:layout_width="@dimen/vs_50"
                     android:layout_height="@dimen/vs_50"
                     android:layout_gravity="center"
-                    android:alpha="0.75"
                     android:src="@drawable/icon_search" />
 
                 <TextView
@@ -132,7 +133,9 @@
                     android:gravity="center"
                     android:text="搜索"
                     android:textAlignment="gravity"
-                    android:textColor="@color/color_CCFFFFFF"
+                    android:textColor="#99FFFFFF"
+                    android:fontFamily="@font/misans_medium"
+                    android:letterSpacing="0.03"
                     android:textSize="@dimen/ts_40" />
 
             </LinearLayout>
@@ -159,7 +162,6 @@
                     android:layout_width="@dimen/vs_50"
                     android:layout_height="@dimen/vs_50"
                     android:layout_gravity="center"
-                    android:alpha="0.75"
                     android:src="@drawable/icon_push" />
 
                 <TextView
@@ -172,7 +174,9 @@
                     android:gravity="center"
                     android:text="推送"
                     android:textAlignment="gravity"
-                    android:textColor="@color/color_CCFFFFFF"
+                    android:textColor="#99FFFFFF"
+                    android:fontFamily="@font/misans_medium"
+                    android:letterSpacing="0.03"
                     android:textSize="@dimen/ts_40" />
 
             </LinearLayout>
@@ -198,7 +202,6 @@
                     android:layout_width="@dimen/vs_50"
                     android:layout_height="@dimen/vs_50"
                     android:layout_gravity="center"
-                    android:alpha="0.75"
                     android:src="@drawable/icon_collect" />
 
                 <TextView
@@ -211,7 +214,9 @@
                     android:gravity="center"
                     android:text="收藏"
                     android:textAlignment="gravity"
-                    android:textColor="@color/color_CCFFFFFF"
+                    android:textColor="#99FFFFFF"
+                    android:fontFamily="@font/misans_medium"
+                    android:letterSpacing="0.03"
                     android:textSize="@dimen/ts_40" />
 
             </LinearLayout>
@@ -239,7 +244,6 @@
                     android:layout_width="@dimen/vs_50"
                     android:layout_height="@dimen/vs_50"
                     android:layout_gravity="center"
-                    android:alpha="0.75"
                     android:src="@drawable/icon_setting" />
 
                 <TextView
@@ -252,7 +256,9 @@
                     android:gravity="center"
                     android:text="设置"
                     android:textAlignment="gravity"
-                    android:textColor="@color/color_CCFFFFFF"
+                    android:textColor="#99FFFFFF"
+                    android:fontFamily="@font/misans_medium"
+                    android:letterSpacing="0.03"
                     android:textSize="@dimen/ts_40" />
 
             </LinearLayout>

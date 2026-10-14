@@ -190,12 +190,19 @@ public class ApiConfig {
         }
         return configUrl;
     }
+    /** 内置默认点播配置（无配置时自动使用） */
+    public static final String DEFAULT_API_URL = "http://www.饭太硬.cc/tv";
+    /** 内置默认直播源 */
+    public static final String DEFAULT_LIVE_URL = "http://193.123.86.190:14888/TV/iptv.php";
+
     public void loadConfig(boolean useCache, LoadConfigCallback callback, Activity activity) {
-        String apiUrl = Hawk.get(HawkConfig.API_URL, "");
-        if (apiUrl.isEmpty()) {
-            callback.error("-1");
-            return;
+        String savedApiUrl = Hawk.get(HawkConfig.API_URL, "");
+        if (savedApiUrl.isEmpty()) {
+            // 无配置时使用内置默认点播源
+            savedApiUrl = DEFAULT_API_URL;
+            Hawk.put(HawkConfig.API_URL, savedApiUrl);
         }
+        final String apiUrl = savedApiUrl;
         File cache = new File(App.getInstance().getFilesDir().getAbsolutePath() + "/" + MD5.encode(apiUrl));
         if (useCache && cache.exists()) {
             try {
@@ -258,11 +265,17 @@ public class ApiConfig {
         });
     }
 
-    public void loadLiveConfig(boolean useCache, LoadConfigCallback callback) {
-        String apiUrl = Hawk.get(HawkConfig.LIVE_API_URL, "");
-        if (apiUrl.isEmpty()) {
-            apiUrl = Hawk.get(HawkConfig.API_URL, "");
+    /** 取直播源地址：未设置时使用内置默认直播源 */
+    private static String resolveLiveApiUrl() {
+        String url = Hawk.get(HawkConfig.LIVE_API_URL, "");
+        if (url.isEmpty()) {
+            url = DEFAULT_LIVE_URL;
         }
+        return url;
+    }
+
+    public void loadLiveConfig(boolean useCache, LoadConfigCallback callback) {
+        String apiUrl = resolveLiveApiUrl();
         if (apiUrl.isEmpty()) {
             callback.error("-1");
             return;
@@ -326,16 +339,12 @@ public class ApiConfig {
     }
 
     public boolean shouldReloadLiveConfig() {
-        String apiUrl = Hawk.get(HawkConfig.LIVE_API_URL, "");
-        if (apiUrl.isEmpty()) apiUrl = Hawk.get(HawkConfig.API_URL, "");
+        String apiUrl = resolveLiveApiUrl();
         return liveChannelGroupList == null || liveChannelGroupList.isEmpty() || !apiUrl.equals(loadedLiveConfigUrl);
     }
 
     public static String getLiveGroupIndexKey() {
-        String liveApiUrl = Hawk.get(HawkConfig.LIVE_API_URL, "");
-        if (liveApiUrl == null || liveApiUrl.length() == 0) {
-            return HawkConfig.LIVE_GROUP_INDEX;
-        }
+        String liveApiUrl = resolveLiveApiUrl();
         return HawkConfig.LIVE_GROUP_INDEX + "_" + liveApiUrl;
     }
 

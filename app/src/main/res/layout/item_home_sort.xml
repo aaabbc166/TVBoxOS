@@ -18,6 +18,8 @@
         android:focusable="false"
         android:gravity="center"
         android:textColor="@color/color_BBFFFFFF"
+        android:fontFamily="@font/misans_medium"
+        android:letterSpacing="0.03"
         android:textSize="@dimen/ts_30" />
 
     <ImageView
